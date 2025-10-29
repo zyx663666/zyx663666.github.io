@@ -1,0 +1,16 @@
+.box {
+    width: 800px;
+    margin: 0 auto;
+    background-color: rgba(red, green, blue, alpha);
+    background-image: url('./img/bgimg.png');
+    background-size: 100%;
+}
+
+.useImgBox{
+    width: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.useImgBox img{
+    width: 50px;
+}
