@@ -3,29 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="indexCss.css">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+    <!-- 导航栏 -->
+    <header>
+        <img src="./images/logo1.png" alt="" class="logo" >
+        <nav>
+            <ul class="nav_links">
+                <li><a href="index.html">Left</a></li>
+                <li><a href="index2.html">right</a></li>
+                <li><a href="index3.html">center</a></li>
+            </ul>
+        </nav>
+        <a href="" class="cta" href="#"><button>首页</button></a>
+    </header>
+
+    <!-- 轮播图 -->
     <div class="box">
-        <table>
-            <tr>
-                <td>
-                    <div class="useImgBox">
-                        <img src="./img/use.png" alt="">
-                    </div>
-                </td>
-                <td width="100px"><a href="https://tianshanyun.cloud/MyWeb/">主页</a></td>
-                <td width="100px><a href="">其他账号</a></td>
-                <td width="100px><a href="">日志</a></td>
-                <td width="100px><a href="">音乐</a></td>
-                <td width="100px><a href="">偶像</a></td>
-            </tr>
-        </table>
-        <hr size="2" color="#ccccccc">
+        <div class="imglist">
+            <a href="#" class="show"><img src="images/banner1.png" alt=""></a>
+            <a href="#"><img src="images/banner2.png" alt=""></a>
+            <a href="#"><img src="images/banner3.png" alt=""></a>
+        </div>
+        <div class="leftBtn">&lt;</div>
+        <div class="rightBtn">&gt;</div>
+        <div class="btnlist">
+            <span class="che"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        window.onload=function(){
+            let imglist = document.querySelectorAll('.imglist>a')
+            let leftBtn = document.querySelector('.leftBtn')
+            let rightBtn = document.querySelector('.rightBtn')
+            let btnlist = document.querySelectorAll('.btnlist>span')
+
+            let index = 0;
+            let time;
+
+            autoPlay();
+            btnClick();
+            
+            function autoPlay(){
+                time = setInterval(()=>{
+                    //index++;
+                    index==imglist.length-1?index=0:index++;//防止越界。
+                    public();
+                },3000)
+            }
+            leftBtn.onclick=function(){
+                //使得操作的时候不自动播放
+                clearInterval(time);
+                
+                index==0?index=imglist.length-1:index--;
+                public();
+
+                //继续播放
+                autoPlay();
+            }
+            rightBtn.onclick=function(){
+                clearInterval(time);
+                index==imglist.length-1?index=0:index++;//防止越界。
+                public();
+                clearInterval(time);
+            }
+
+            function public(){
+                for(let i=0;i<imglist.length;i++){
+                    imglist[i].classList.remove('show');
+                    btnlist[i].classList.remove('che');
+                }
+                imglist[index].classList.add('show');
+                btnlist[index].classList.add('che');
+            }
+            //点击下方的按钮实现切换
+            function btnClick(){
+                for(let i=0;i<btnlist.length;i++){
+                    btnlist[i].onclick=function(){
+                        clearInterval(time);
+                        index=i;
+                        public();
+                        autoPlay();
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 按钮手风琴 -->
+    <div class="zong">
+    <div class="wrapper">
+        <a href="#blender" class="button">
+            <div class="icon">
+                <i class="fab fa-facebook-b"></i>
+            </div>
+            <span>Blender</span>
+        </a>
+        <a href="" class="button">
+            <div class="icon">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <span>千星奇域</span>
+        </a>
+        <a href="#ue5" class="button">
+            <div class="icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <span>UE5</span>
+        </a>
+        <a href="https://github.com" class="button">
+            <div class="icon">
+                <i class="fab fa-github"></i>
+            </div>
+            <span>还没做</span>
+        </a>
+        <a href="https://youtube.com" class="button">
+            <div class="icon">
+                <i class="fab fa-youtube"></i>
+            </div>
+            <span>也没做</span>
+        </a>
+    </div>
+    </div>
+
+    <div class="artic">
+        <div class="at" id="blender">
+            <p>blender</p>
+        </div>
+        <a href="https://tianshanyun.cloud/">
+            <div class="content1">
+            
+            </div>
+        </a>
+        
+        <div class="content1">
+
+        </div>
+        <div class="content1">
+
+        </div>
+    </div>
+    <div class="artic">
 
     </div>
-    <h1>张宇祥的个人博客</h1>
-    <a href="https://tianshanyun.cloud/MyWeb/" name="" title="" target="_blank">博客</a>
+    <div class="artic">
+
+    </div>
+
+
+    <aside>
+        <p>ciallo!</p>
+    </aside>
+    
+    <footer>
+        <h1>ciallo</h1>
+        <p>这应该是页脚把</p>
+        <h1>ciallo</h1>
+        <p>这应该是页脚把</p>
+        <h1>ciallo</h1>
+        <p>这应该是页脚把</p>
+    </footer>
 </body>
 </html>
