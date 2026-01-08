@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人博客</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <!-- 导航栏 -->
     <header>
-        <img src="./images/logo1.png" alt="" class="logo" >
+        <img src="assets/images/logo1.png" alt="" class="logo" >
         <nav>
             <ul class="nav_links">
                 <li><a href="index.html">Left</a></li>
-                <li><a href="index2.html">right</a></li>
-                <li><a href="index3.html">center</a></li>
+                <li><a href="pages/about.html">right</a></li>
+                <li><a href="pages/works.html">center</a></li>
+                <li><a href="pages/upload.html">上传</a></li>
             </ul>
         </nav>
         <a href="" class="cta" href="#"><button>首页</button></a>
@@ -24,9 +23,9 @@
     <!-- 轮播图 -->
     <div class="box">
         <div class="imglist">
-            <a href="#" class="show"><img src="images/banner1.png" alt=""></a>
-            <a href="#"><img src="images/banner2.png" alt=""></a>
-            <a href="#"><img src="images/banner3.png" alt=""></a>
+            <a href="#" class="show"><img src="assets/images/banner1.png" alt=""></a>
+            <a href="#"><img src="assets/images/banner2.png" alt=""></a>
+            <a href="#"><img src="assets/images/banner3.png" alt=""></a>
         </div>
         <div class="leftBtn">&lt;</div>
         <div class="rightBtn">&gt;</div>
@@ -131,42 +130,106 @@
     </div>
     </div>
 
+    <!-- 主要内容 -->
     <div class="artic">
-        <div class="at" id="blender">
-            <p>blender</p>
+        <div class="at">
+            <h2>动画</h2>
         </div>
-        <a href="https://tianshanyun.cloud/">
+        <div class="content-grid">
+            <a href="pages/taowang.html">
+                <div class="content1">
+                    <img src="assets/images/banner1.png" alt="桃王">
+                    <p>魔法森林</p>
+                </div>
+            </a>
+            <a href="pages/nnlmmj.html">
+                <div class="content1">
+                    <img src="assets/images/banner2.png" alt="女女联盟">
+                    <p>娜娜莉动画</p>
+                </div>
+            </a>
             <div class="content1">
-            
+                <img src="assets/images/logo1.png" alt="更多动画">
+                <p>即将推出的动画项目</p>
             </div>
-        </a>
-        
-        <div class="content1">
-
-        </div>
-        <div class="content1">
-
+            <div class="content1">
+                <img src="assets/images/banner3.png" alt="动画工具">
+                <p>动画制作教程</p>
+            </div>
         </div>
     </div>
     <div class="artic">
-
+        <div class="at">
+            <h2>游戏</h2>
+        </div>
+        <div class="content-grid">
+            <a href="pages/works.html">
+                <div class="content1">
+                    <img src="assets/images/yx_1.png" alt="作品">
+                    <p>苏州园林风格游戏</p>
+                </div>
+            </a>
+            <div class="content1">
+                <img src="" alt="更多游戏">
+                <p>还没有</p>
+            </div>
+            <div class="content1">
+                <img src="" alt="游戏开发">
+                <p>还没有</p>
+            </div>
+            <div class="content1">
+                <img src="" alt="Blender游戏">
+                <p>还没有</p>
+            </div>
+        </div>
     </div>
     <div class="artic">
-
+        <div class="at">
+            <h2>学习</h2>
+        </div>
+        <div class="content-grid">
+            <a href="pages/study.html">
+                <div class="content1">
+                    <img src="" alt="学习">
+                    <p>还没有</p>
+                </div>
+            </a>
+            <div class="content1">
+                <img src="" alt="工具">
+                <p>还没有</p>
+            </div>
+            <div class="content1">
+                <img src="" alt="编程">
+                <p>还没有</p>
+            </div>
+            <div class="content1">
+                <img src="" alt="设计">
+                <p>还没有</p>
+            </div>
+        </div>
     </div>
 
 
     <aside>
-        <p>ciallo!</p>
+        <h3>快速链接</h3>
+        <ul>
+            <li><a href="pages/about.html">关于我</a></li>
+            <li><a href="pages/works.html">作品集</a></li>
+            <li><a href="pages/upload.html">上传内容</a></li>
+            <li><a href="https://github.com">GitHub</a></li>
+            <li><a href="https://youtube.com">YouTube</a></li>
+        </ul>
     </aside>
     
     <footer>
-        <h1>ciallo</h1>
-        <p>这应该是页脚把</p>
-        <h1>ciallo</h1>
-        <p>这应该是页脚把</p>
-        <h1>ciallo</h1>
-        <p>这应该是页脚把</p>
+        <div class="footer-content">
+            <p>&copy; 2025 我的博客. 保留所有权利.</p>
+            <p>联系我: email@example.com</p>
+            <div class="social-links">
+                <a href="https://github.com"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

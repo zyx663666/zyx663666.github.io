@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>上传内容</title>
+</head>
+<body>
+    <header>
+        <img src="../assets/images/logo1.png" alt="" class="logo" >
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="works.html">作品</a></li>
+                <li><a href="upload.html">上传</a></li>
+            </ul>
+        </nav>
+        <a href="" class="cta" href="#"><button>首页</button></a>
+    </header>
+
+    <main>
+        <h1>上传内容</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="videoInput">选择视频文件：</label>
+            <input type="file" name="video" accept="video/*" id="videoInput"><br><br>
+            <label for="textInput">选择文本文件：</label>
+            <input type="file" name="text" accept=".txt,.md" id="textInput"><br><br>
+            <button type="submit">上传</button>
+        </form>
+        <div id="uploadStatus"></div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 我的博客. 保留所有权利.</p>
+            <p>联系我: email@example.com</p>
+            <div class="social-links">
+                <a href="https://github.com"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const status = document.getElementById('uploadStatus');
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                status.innerHTML = '<p>' + data.message + '</p>';
+                if (data.video) {
+                    status.innerHTML += '<p>视频上传成功: ' + data.video + '</p>';
+                }
+                if (data.text) {
+                    status.innerHTML += '<p>文本内容: ' + data.text + '</p>';
+                }
+            })
+            .catch(error => {
+                status.innerHTML = '<p>上传失败: ' + error.message + '</p>';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* import url('http://fonts.googleapis.com/'); */
+* {
+    box-sizing: border-box; /* 设置盒模型为border-box，宽度和高度包括边框和内边距 */
+    margin: 0; /* 重置所有元素的默认外边距为0 */
+    padding: 0; /* 重置所有元素的默认内边距为0 */
+    /* background-color: #24252a; */
+}
+html,body{
+    background: linear-gradient(315deg,#ffffff 0%,#d7e1ec 74%); /* 设置html和body的背景为线性渐变，从白色到浅蓝色 */
+}
+
+li,a,button{
+    font-weight: 500; /* 设置字体粗细为中等 */
+    font-size: 16px; /* 设置字体大小为16像素 */
+    color: #edf0f1; /* 设置文字颜色为浅灰色 */
+    text-decoration: none; /* 移除链接的下划线 */
+}
+
+header {
+    display: flex; /* 使用弹性布局 */
+    justify-content: space-between; /* 元素之间均匀分布，左右对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 10px 10%; /* 内边距：上下10px，左右10% */
+
+    background-color: rgb(74, 74, 74); /* 背景色为深灰色 */
+    border-radius: 0px 0px 30px 30px ; /* 底部圆角30px */
+}
+
+.logo {
+    /* 鼠标便手 */
+    cursor: pointer; /* 鼠标悬停时显示指针样式，表示可点击 */
+}
+
+.nav_links {
+    list-style: none; /* 移除列表项的默认圆点 */
+}
+
+.nav_links li{
+    display: inline-block; /* 让列表项水平排列 */
+    padding: 0px 20px; /* 左右内边距20px */
+}
+
+.nav_links li:nth-child(1){
+    text-decoration: nuderline; /* 注意：这里可能是拼写错误，应该是underline，但保持原样 */
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s; /* 添加过渡效果，0.3秒缓动 */
+}
+.nav_links li a:hover{
+    color:#0088a9; /* 悬停时文字颜色变为蓝色 */
+}
+
+button{
+    padding: 9px 25px; /* 内边距：上下9px，左右25px */
+    background-color: rgba(0,136,169,1); /* 背景色为半透明蓝色 */
+    border:none; /* 移除边框 */
+    border-radius: 50px; /* 圆角50px，变成椭圆形 */
+    cursor: pointer; /* 鼠标指针样式 */
+    transition: all 0.3s ease 0s; /* 过渡效果 */
+}
+
+button:hover{
+    background-color: rgba(0,136,169,0.6); /* 悬停时背景色更透明 */
+}
+
+/* 轮播图 */
+.box{
+    width: 80%; /* 宽度为父元素的70% */
+    /* height: 1000px; */
+    aspect-ratio: 21 / 9; /* 设置宽高比为21:9 */
+    border: 2px solid red; /* 红色实线边框，2px宽 */
+    /* position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%,-50%); */
+    margin: 20px auto; /* 上下外边距20px，左右自动居中 */
+    position: relative; /* 相对定位，作为子元素的定位基准 */
+    border-radius: 30px; /* 圆角30px */
+}
+.box>.imglist{
+    /* position: fixed; */
+    width: 100%; /* 宽度100% */
+    height: 100%; /* 高度100% */
+
+}
+.box>.imglist>a{
+    position: absolute; /* 绝对定位 */
+    width: 100%;
+    height: 100%;
+    display: none;/* 默认先不显示 */
+    
+}
+.box>.imglist>a>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px; /* 图片圆角 */
+    object-fit: cover; /* 保持图片比例，覆盖整个容器，裁剪超出部分 */
+}
+
+.leftBtn,.rightBtn {
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 距离顶部50% */
+    transform: translate(0,-50%); /* 垂直居中 */
+    font-size: 30px; /* 字体大小30px */
+    font-weight: bold; /* 字体加粗 */
+}
+.leftBtn {
+    left: 10px; /* 距离左边10px */
+}
+.rightBtn {
+    right: 10px; /* 距离右边10px */
+}
+
+.btnlist {
+    position: absolute; /* 绝对定位 */
+    bottom: 20px; /* 距离底部20px */
+    left: 50%; /* 距离左边50% */
+    transform: translate(-50%,0); /* 水平居中 */
+    display: flex; /* 弹性布局 */
+}
+.btnlist>span {
+    background: #ccc; /* 背景色灰色 */
+    width: 20px; /* 宽度20px */
+    height: 20px; /* 高度20px */
+    border-radius: 100%; /* 圆形 */
+    display: block; /* 块级元素 */
+    margin-right: 10px; /* 右边距10px */
+}
+.btnlist>span:last-child{
+    margin-right: 0; /* 最后一个span右边距为0 */
+}
+
+.che {
+    background: blue !important; /* 背景色蓝色，使用!important提高优先级 */
+}
+
+.show {
+    display: block !important; /* 显示为块级元素，优先级高 */
+}
+
+/* 手风琴 */
+.zong {
+    display: grid;
+    height: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+.wrapper .button {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 0 5px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none; /* 移除链接下划线 */
+    color: inherit; /* 继承颜色 */
+}
+
+.wrapper .button:hover {
+    width: 200px;
+}
+.wrapper .button .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 60px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1):hover .icon {
+    background: #ff3d00;
+    color: #fff;
+}
+.wrapper .button:nth-child(2):hover .icon {
+    background: #ff3d00;
+    color: #fff;
+} 
+.wrapper .button:nth-child(3):hover .icon {
+    background: #ff3d00;
+    color: #fff;
+} 
+.wrapper .button:nth-child(4):hover .icon {
+    background: #ff3d00;
+    color: #fff;
+} 
+.wrapper .button:nth-child(5):hover .icon {
+    background: #ff3d00;
+    color: #fff;
+}
+.wrapper .button .icon i{
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+}
+.wrapper .button:hover .icon i {
+    color: #fff;
+}
+.wrapper .button span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+}
+/* 内容 */
+.artic {
+    width: 90%; /* 宽度90% */
+    min-height: 400px; /* 最小高度400px */
+    margin: 30px auto; /* 上下30px，左右居中 */
+    border-radius: 30px; /* 圆角30px */
+    background-color: rgba(188, 188, 188, 0.8); /* 背景色灰色半透明 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加阴影 */
+    padding: 20px; /* 内边距 */
+    display: flex; /* 使用flexbox */
+    flex-direction: column; /* 垂直排列 */
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.at {
+    width: 100%; /* 宽度100% */
+    height: auto; /* 高度自适应 */
+    padding: 10px 0; /* 内边距 */
+    text-align: center; /* 居中 */
+}
+.at h2 {
+    color: #333; /* 标题颜色 */
+    font-size: 24px; /* 字体大小 */
+    margin: 0; /* 移除默认外边距 */
+}
+.content1 {
+    width: 100%; /* 宽度100% */
+    height: auto; /* 高度自适应 */
+    border-radius: 20px; /* 圆角20px */
+    margin: 0; /* 移除外边距 */
+    background-color: #8fcee2; /* 背景色浅蓝 */
+    display: flex; /* 使用flexbox */
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 居中对齐 */
+    padding: 10px; /* 内边距 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+.content1:hover {
+    transform: scale(1.05); /* 悬停时放大 */
+}
+.content1 img {
+    width: 100%; /* 图片宽度100% */
+    height: 150px; /* 固定高度 */
+    object-fit: cover; /* 保持比例 */
+    border-radius: 10px; /* 圆角 */
+}
+.content1 p {
+    margin: 10px 0 0 0; /* 上外边距 */
+    text-align: center; /* 居中 */
+    color: #333; /* 文字颜色 */
+}
+
+
+
+
+
+aside{
+    float: right; /* 右浮动 */
+    width: 200px; /* 宽度200px */
+    margin: 20px; /* 外边距 */
+    background-color: rgba(255,255,255,0.8); /* 背景色白色半透明 */
+    border-radius: 10px; /* 圆角 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影 */
+}
+aside h3 {
+    margin-bottom: 10px; /* 下外边距 */
+    color: #333; /* 颜色 */
+}
+aside ul {
+    list-style: none; /* 无列表样式 */
+    padding: 0; /* 无内边距 */
+}
+aside li {
+    margin-bottom: 5px; /* 下外边距 */
+}
+aside a {
+    color: #0088a9; /* 链接颜色 */
+    text-decoration: none; /* 无下划线 */
+}
+aside a:hover {
+    text-decoration: underline; /* 悬停下划线 */
+}
+
+footer {
+    clear: both; /* 清除浮动 */
+    background-color: rgb(74, 74, 74); /* 背景色深灰 */
+    color: #edf0f1; /* 文字颜色 */
+    text-align: center; /* 居中 */
+    padding: 20px; /* 内边距 */
+    margin-top: 40px; /* 上外边距 */
+}
+.footer-content {
+    max-width: 1200px; /* 最大宽度 */
+    margin: 0 auto; /* 居中 */
+}
+.social-links a {
+    color: #edf0f1; /* 颜色 */
+    margin: 0 10px; /* 左右外边距 */
+    font-size: 20px; /* 字体大小 */
+}
+.social-links a:hover {
+    color: #0088a9; /* 悬停颜色 */
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>涛王视频播放器</title>
+    <link rel="stylesheet" href="../assets/css/taowang.css">
+</head>
+<body>
+    <header>
+        <h1>涛王视频播放器</h1>
+    </header>
+
+    <main class="content-container">
+        <aside class="left-sidebar">
+            <h3>目录</h3>
+            <ul>
+                <li><a href="#" onclick="showContent('video')">视频</a></li>
+                <li><a href="#" onclick="showContent('text')">文字</a></li>
+                <li><a href="#" onclick="showContent('intro')">介绍</a></li>
+            </ul>
+        </aside>
+        <section class="main-content">
+            <div id="video" class="content-section active">
+                <div class="video-container">
+                    <video id="videoPlayer" poster="">
+                        <source src="../videos/0000-0480.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                    <div id="danmuContainer" class="danmu-container"></div>
+                    <div class="video-controls">
+                        <button id="playPauseBtn" class="control-btn">▶️</button>
+                        <input type="range" id="progressBar" class="progress-bar" min="0" max="100" value="0">
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        <button id="muteBtn" class="control-btn">🔊</button>
+                        <input type="range" id="volumeBar" class="volume-bar" min="0" max="1" step="0.1" value="1">
+                        <select id="speedSelect" class="control-select">
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                        <button id="fullscreenBtn" class="control-btn">⛶</button>
+                        <button id="pipBtn" class="control-btn">📺</button>
+                        <button id="screenshotBtn" class="control-btn">📸</button>
+                        <select id="qualitySelect" class="control-select">
+                            <option value="1080p">高清1080P</option>
+                            <option value="720p" selected>超清720P</option>
+                        </select>
+                    </div>
+                    <div class="danmu-controls">
+                        <input type="text" id="danmuInput" placeholder="发送弹幕..." maxlength="50">
+                        <button id="sendDanmuBtn">发送</button>
+                        <select id="danmuColor">
+                            <option value="#ffffff">白色</option>
+                            <option value="#ff0000">红色</option>
+                            <option value="#00ff00">绿色</option>
+                            <option value="#0000ff">蓝色</option>
+                            <option value="#ffff00">黄色</option>
+                        </select>
+                        <select id="danmuPosition">
+                            <option value="scroll">滚动</option>
+                            <option value="top">顶部</option>
+                            <option value="bottom">底部</option>
+                        </select>
+                        <label>字体大小: <input type="range" id="danmuSize" min="12" max="36" value="20"></label>
+                        <label>透明度: <input type="range" id="danmuOpacity" min="0.1" max="1" step="0.1" value="0.8"></label>
+                        <label>速度: <input type="range" id="danmuSpeed" min="1" max="10" value="5"></label>
+                    </div>
+                </div>
+            </div>
+            <div id="text" class="content-section">
+                文字内容区域
+            </div>
+            <div id="intro" class="content-section">
+                介绍内容区域
+            </div>
+        </section>
+        <aside class="right-sidebar">
+            <h3>播放列表</h3>
+            <ul id="playlist">
+                <li data-src="../assets/videos/娜娜莉喵喵叫.mp4" class="active">娜娜莉喵喵叫</li>
+                <!-- 可以添加更多视频 -->
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 涛王博客</p>
+    </footer>
+
+    <script src="../assets/js/player.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动属性</title>
+    <style>
+        #box{
+            /* width: 600px;
+            height: 600px; */
+            background-color: deeppink;
+
+            /* 在不设置宽高的情况下，让父类可以感知到子类的高度 */
+            /* overflow: hidden; */
+            float: left;
+        }
+        #box>div:first-child{
+            width: 200px; 
+            height: 200px;
+            background-color: green;
+
+            /* 左浮动 */
+            float: left;
+        }
+        #box>div:nth-child(2){
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+
+            float: right;
+        }
+        #box>div:nth-child(3){
+            width: 200px;
+            height: 200px;
+            background: red;
+            float: right;
+        }
+        #box>div:nth-child(4){
+            width: 200px;
+            height: 200px;
+            background: rgb(104, 18, 18);
+        }
+
+        .qwq{
+            height: 300px;
+            width: 300px;
+            float: right;
+            background: #510d0d;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="qwq"></div>
+</body>
+</html>
